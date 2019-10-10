@@ -1,0 +1,34 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "HTML is a",
+      "answer": "Markup Language"
+    },
+    {
+      "id": 2,
+      "question": "Title tag is kept inside the",
+      "answer": "Head tag"
+    },
+    {
+      "id": 3,
+      "question": "How many headings does HTML use",
+      "answer": "six"
+    },
+    {
+      "question": "How many body tags are needed in an html element",
+      "answer": "one",
+      "id": 4
+    },
+    {
+      "question": "What is HTML",
+      "answer": "Hyper Text Markup Language",
+      "id": 5
+    },
+    {
+      "question": "What is my name",
+      "answer": "Ikechukwu",
+      "id": 6
+    }
+  ]
+}

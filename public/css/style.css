@@ -1,0 +1,83 @@
+body {
+  background-color: #f7f7f7;
+  background: url("https://i.pinimg.com/564x/4c/6b/74/4c6b74dd8e9b4c372b1e996130bdb0df.jpg");
+}
+
+.header {
+  color: black;
+  cursor: pointer;
+}
+
+#landingpage {
+  color: white;
+  text-align: center;
+}
+
+#main {
+  color: white;
+  text-align: left;
+  background-color: dimgray;
+}
+
+#addquestion {
+  background-color: white;
+}
+
+#contactus {
+  text-align: center;
+  text-emphasis: bold;
+  font-size: 20px;
+  color: aqua;
+}
+
+#headerword {
+  color: wheat;
+}
+
+.lead {
+  font-style: italic;
+  color: aquamarine;
+  font-size: 12px;
+}
+
+.quizquest {
+  font-size: 20px;
+  text-align: left;
+  font-weight: bolder;
+}
+
+#quest-li {
+  color: whitesmoke;
+}
+
+h1 {
+  color: wheat;
+  text-align: center;
+}
+
+h2 {
+  color: bisque;
+  text-align: center;
+}
+
+label {
+  color: antiquewhite;
+}
+
+hr {
+  height: 1px;
+  color: goldenrod;
+  background-color: goldenrod;
+  border: none;
+}
+
+.form-group {
+  font-weight: bolder;
+}
+
+#quizResult {
+  font-size: 60px;
+  color: chartreuse;
+  font-weight: 900;
+  text-align: center;
+}
