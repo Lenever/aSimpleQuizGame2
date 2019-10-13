@@ -1,4 +1,28 @@
 $(document).ready(function() {
+  //Searching questions
+  $("#search").submit(function(event) {
+    event.preventDefault();
+    if ($("#searchstring").val() !== "") {
+      let searchstring = $("#searchstring").val();
+      console.log(searchstring);
+
+      window.open("searchresult.html");
+
+      $.get("http://localhost:3000/questions", function(data) {
+        for (i = 0; i < data.length; i++) {
+          const question = data[i]["question"];
+          const answer = data[i]["answer"];
+          if (
+            question.includes(searchstring) ||
+            answer.includes(searchstring)
+          ) {
+            $("#search-li").append(`<li>${question}</li>`);
+          }
+        }
+      });
+    }
+  });
+
   // Adding Questions and correct answer from user
   $("#addquestion").submit(function(event) {
     event.preventDefault();
@@ -27,11 +51,11 @@ $(document).ready(function() {
 
   // Getting questions from database
   $.get("http://localhost:3000/questions", function(data) {
-    console.log(data);
-
     for (let i = 0; i < data.length; i++) {
       var question = data[i]["question"];
-      $("#quest-li").append(`<li> ${question} </li>`);
+      $("#quest-li").append(
+        `<li> ${question} <a role="button" class="btn btn-outline-primary" href="">Update</a> <a role="button" class="btn btn-outline-danger" href="">Delete</a></li>`
+      );
     }
   });
 
@@ -66,7 +90,7 @@ $(document).ready(function() {
       let randomOption2 = options[randIndex2];
 
       // Adding a div to add questions
-      $("#quiz").append(`<div id="quiz` + id + `"></div>`);
+      $("#quizli").append(`<div id="quiz` + id + `"></div>`);
 
       // Adding a question
       $("#quiz" + id).append(
@@ -131,6 +155,7 @@ $(document).ready(function() {
   // Quiz result calculations and display
   $("#target").submit(function(event) {
     event.preventDefault();
+    $("#target").hide();
     var count = 0;
     var numQuest = 0;
     $.get("http://localhost:3000/questions", function(data) {
@@ -149,8 +174,15 @@ $(document).ready(function() {
         }
       }
 
-      $("#main").append(
+      $("#main").append(`<div class="jumbotron" id="resultdisplay"></div>`);
+      $("#resultdisplay").append(
         `<p id="quizResult"> Congratulations!! You were correct ${count} out of ${numQuest} times!`
+      );
+      $("#resultdisplay").append(
+        `<a role="button" class="btn btn-outline-primary" href="">Retake Quiz</a>`
+      );
+      $("#resultdisplay").append(
+        `<a role="button" class="btn btn-outline-danger" href="">Close</a>`
       );
     });
   });

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quiz Up</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="top">
+      <a class="navbar-brand" href="#top">QuizUp</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#top"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#main">Take a quiz</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="index1.html"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Questions
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#addquestions">Create questions</a>
+              <a class="dropdown-item" href="index1.html">Update questions</a>
+              <a class="dropdown-item" href="index1.html">Delete questions</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="index1.html">View all questions</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#contactus"
+              tabindex="-1"
+              aria-disabled="true"
+              >Contact us</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" id="search">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Look up a question"
+            aria-label="Search"
+            id="searchstring"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container-fluid" id="landingpage">
+      <h3 class="display-1" id="headerword">HTML QUIZ</h3>
+      <p class="lead">
+        <marquee class="display-4"
+          >Take a quiz to see how much of HTML 5 you know</marquee
+        >
+      </p>
+    </div>
+
+    <div class="container-fluid" id="main">
+      <h2>Quiz Up</h2>
+      <form id="target">
+        <ol id="quizli"></ol>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <div class="container-fluid" id="addquestions">
+      <form id="addquestion">
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="text-dark">Question</label>
+          <input
+            type="text"
+            class="question"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Type question here"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >Direct questions please</small
+          >
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="text-dark">Answer</label>
+          <input
+            type="text"
+            class="answer"
+            id="exampleInputPassword1"
+            placeholder="Type the correct answer to your question here"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" value="Go">Add</button>
+      </form>
+    </div>
+
+    <div id="contactus">
+      <p>onuorah.ikechukwuvictor@gmail.com</p>
+      <p>+2347037373502</p>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

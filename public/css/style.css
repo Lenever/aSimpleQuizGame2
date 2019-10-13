@@ -81,3 +81,11 @@ hr {
   font-weight: 900;
   text-align: center;
 }
+
+.jumbotron {
+  text-align: center;
+}
+
+li {
+  font-size: 30px;
+}
