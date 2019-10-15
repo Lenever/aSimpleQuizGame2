@@ -6,34 +6,57 @@
       "answer": "Markup Language"
     },
     {
-      "id": 2,
-      "question": "Title tag is kept inside the",
-      "answer": "Head tag"
-    },
-    {
-      "id": 3,
-      "question": "How many headings does HTML use",
-      "answer": "six"
+      "question": "What is HTML",
+      "answer": "Hyper Text Markup Language",
+      "id": 2
     },
     {
       "question": "How many body tags are needed in an html element",
       "answer": "one",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstname": "Ikechukwu",
+      "lastname": "Onuorah",
+      "username": "iyke",
+      "email": "onuorahikechukwu@gmail.com",
+      "password": "55555",
+      "admin": ""
+    },
+    {
+      "id": 2,
+      "firstname": "Lenever",
+      "lastname": "Labrascar",
+      "username": "Lenever",
+      "email": "leneverlabrascar@yahoo.com",
+      "password": "55555"
+    },
+    {
+      "firstname": "Don",
+      "lastname": "Pablo",
+      "username": "Escobar",
+      "email": "escobar@gmail.com",
+      "password": "33333",
+      "id": 3
+    },
+    {
+      "firstname": "kjkjkljkj",
+      "lastname": "jkjkjkjk",
+      "username": "jkjkjkj",
+      "email": "jkjkjkj@jkjkjkj.com",
+      "password": "66666",
       "id": 4
     },
     {
-      "question": "What is HTML",
-      "answer": "Hyper Text Markup Language",
+      "firstname": "dadfda",
+      "lastname": "dfsds",
+      "username": "sdfdgd",
+      "email": "afdaa@kjkjl.com",
+      "password": "66666",
       "id": 5
-    },
-    {
-      "question": "What is my name",
-      "answer": "Ikechukwu",
-      "id": 6
-    },
-    {
-      "question": "What is it",
-      "answer": "five",
-      "id": 7
     }
   ]
 }

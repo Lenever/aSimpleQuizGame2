@@ -6,7 +6,7 @@ $(document).ready(function() {
       let searchstring = $("#searchstring").val();
       console.log(searchstring);
 
-      window.open("searchresult.html");
+      window.open("searchresult.html", "_self", false);
 
       $.get("http://localhost:3000/questions", function(data) {
         for (i = 0; i < data.length; i++) {
@@ -16,7 +16,9 @@ $(document).ready(function() {
             question.includes(searchstring) ||
             answer.includes(searchstring)
           ) {
-            $("#search-li").append(`<li>${question}</li>`);
+            $("#searchli").append(`<li>${question}</li>`);
+          } else {
+            $("#searchresult").append(`<p> No resutls found </p>`);
           }
         }
       });
@@ -52,9 +54,10 @@ $(document).ready(function() {
   // Getting questions from database
   $.get("http://localhost:3000/questions", function(data) {
     for (let i = 0; i < data.length; i++) {
-      var question = data[i]["question"];
+      let question = data[i]["question"];
+      let id = data[i]["id"];
       $("#quest-li").append(
-        `<li> ${question} <a role="button" class="btn btn-outline-primary" href="">Update</a> <a role="button" class="btn btn-outline-danger" href="">Delete</a></li>`
+        `<li> ${question} <a role="button" class="btn btn-outline-primary update" id="${id}" href="">Update</a> <a role="button" class="btn btn-outline-danger remove" id="${id}" href="">Delete</a></li>`
       );
     }
   });
@@ -156,8 +159,8 @@ $(document).ready(function() {
   $("#target").submit(function(event) {
     event.preventDefault();
     $("#target").hide();
-    var count = 0;
-    var numQuest = 0;
+    let count = 0;
+    let numQuest = 0;
     $.get("http://localhost:3000/questions", function(data) {
       numQuest = data.length;
       console.log(numQuest);
@@ -185,5 +188,52 @@ $(document).ready(function() {
         `<a role="button" class="btn btn-outline-danger" href="">Close</a>`
       );
     });
+  });
+
+  // Delete buttons on questions
+  $("#quest-li").delegate(".remove", "click", function() {
+    if (confirm("Are you sure you want to delete this question?")) {
+      $.ajax({
+        method: "DELETE",
+        url: `http://localhost:3000/questions/${$(this).attr("id")}`
+      });
+    } else {
+      window.location.href = "index1.html";
+    }
+  });
+
+  // Adding Users data from SignUp
+  $("#signup").submit(function(event) {
+    event.preventDefault();
+    if ($(".form-control").val() !== "" && $("#tandC").is(":checked")) {
+      const firstname = $("#firstName").val();
+      const lastname = $("#lastName").val();
+      const username = $("#userName").val();
+      const email = $("#inputEmail").val();
+      const password = $("#retypePassword").val();
+      let newUser = {
+        firstname,
+        lastname,
+        username,
+        email,
+        password
+      };
+      $.ajax({
+        method: "POST",
+        url: "http://localhost:3000/users",
+        data: newUser
+      })
+        .done(function(newUser) {
+          window.location.href = "signin.html";
+          alert("Question Saved: " + newUser[email]);
+          const postData = JSON.stringify(newUser);
+          localStorage.setItem("post", postData);
+        })
+        .fail(function(err) {
+          alert("Error" + msg);
+        });
+    } else {
+      alert("Agree to the terms and condition to continue");
+    }
   });
 });
