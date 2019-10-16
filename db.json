@@ -57,6 +57,14 @@
       "email": "afdaa@kjkjl.com",
       "password": "66666",
       "id": 5
+    },
+    {
+      "firstname": "Makeivelli",
+      "lastname": "The",
+      "username": "Don",
+      "email": "thedon@gmail.com",
+      "password": "666666",
+      "id": 6
     }
   ]
 }

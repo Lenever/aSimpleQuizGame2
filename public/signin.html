@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Sign In Page</title>
+    <title>Sign In</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/bootstrap.css" />
@@ -14,26 +14,31 @@
       <h3 color="black">Sign In</h3>
       <form id="signin">
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+          <label for="signinEmail">Email address</label>
           <input
             type="email"
             class="form-control"
-            id="exampleInputEmail1"
+            id="signinEmail"
             aria-describedby="emailHelp"
             placeholder="Enter email"
             required
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
+          <label for="signinPassword">Password</label>
           <input
             type="password"
             class="form-control"
-            id="exampleInputPassword1"
+            id="signinPassword"
             placeholder="Password"
             required
           />
         </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="loginDetail" />
+          <label class="form-check-label" for="loginDetail"
+            >Remember Me</label
+          >
         <small id="emailHelp" class="form-text text-muted"
           >Don't have an account yet? <a href="signup.html">Sign Up</a></small
         >

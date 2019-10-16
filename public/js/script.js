@@ -57,7 +57,7 @@ $(document).ready(function() {
       let question = data[i]["question"];
       let id = data[i]["id"];
       $("#quest-li").append(
-        `<li> ${question} <a role="button" class="btn btn-outline-primary update" id="${id}" href="">Update</a> <a role="button" class="btn btn-outline-danger remove" id="${id}" href="">Delete</a></li>`
+        `<li id="disp${id}"> ${question} <a role="button" class="btn btn-outline-primary update" id="${id}" href="">Update</a> <a role="button" class="btn btn-outline-danger remove" id="${id}" href="">Delete</a></li>`
       );
     }
   });
@@ -177,9 +177,11 @@ $(document).ready(function() {
         }
       }
 
+      let percentPassed = Math.floor((count / numQuest) * 100);
+
       $("#main").append(`<div class="jumbotron" id="resultdisplay"></div>`);
       $("#resultdisplay").append(
-        `<p id="quizResult"> Congratulations!! You were correct ${count} out of ${numQuest} times!`
+        `<p id="quizResult"> Congratulations!! You scored ${percentPassed}%!`
       );
       $("#resultdisplay").append(
         `<a role="button" class="btn btn-outline-primary" href="">Retake Quiz</a>`
@@ -218,6 +220,7 @@ $(document).ready(function() {
         email,
         password
       };
+
       $.ajax({
         method: "POST",
         url: "http://localhost:3000/users",
@@ -225,7 +228,7 @@ $(document).ready(function() {
       })
         .done(function(newUser) {
           window.location.href = "signin.html";
-          alert("Question Saved: " + newUser[email]);
+          alert("Details Saved: " + newUser[email]);
           const postData = JSON.stringify(newUser);
           localStorage.setItem("post", postData);
         })
@@ -235,5 +238,32 @@ $(document).ready(function() {
     } else {
       alert("Agree to the terms and condition to continue");
     }
+  });
+
+  // Sign In
+  $("#signin").submit(function(event) {
+    event.preventDefault();
+    if ($(".form-control").val()) {
+      let signInEmail = $("#signinEmail").val();
+      let signInPassword = $("#signinPassword").val();
+      let notUser = `<p color="red">* Incorrect Username/Password</p>`;
+      $.get("http://localhost:3000/users", function(data) {
+        for (i = 0; i < data.length; i++) {
+          let email = data[i]["email"];
+          let password = data[i]["password"];
+          if (signInEmail == email && signInPassword == password) {
+            window.location.href = "landingpage.html";
+          }
+        }
+        $("h3").after(notUser);
+      });
+    } else {
+      $("h3").after(`<p color="red">* Enter Username/Password</p>`);
+    }
+  });
+
+  // Updating questions
+  $("#quest-li").delegate(".update", "click", function() {
+    $(`#disp${$(this).attr("id")}`).append(`<form id=`);
   });
 });
