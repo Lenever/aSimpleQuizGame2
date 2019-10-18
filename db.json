@@ -33,6 +33,14 @@
       "username": "Lenever",
       "email": "leneverlabrascar@yahoo.com",
       "password": "55555"
+    },
+    {
+      "firstname": "Abiye",
+      "lastname": "Willie",
+      "username": "Lomo",
+      "email": "abiyewillie@gmail.com",
+      "password": "55555",
+      "id": 3
     }
   ]
 }
