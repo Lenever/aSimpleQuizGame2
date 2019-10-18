@@ -33,38 +33,6 @@
       "username": "Lenever",
       "email": "leneverlabrascar@yahoo.com",
       "password": "55555"
-    },
-    {
-      "firstname": "Don",
-      "lastname": "Pablo",
-      "username": "Escobar",
-      "email": "escobar@gmail.com",
-      "password": "33333",
-      "id": 3
-    },
-    {
-      "firstname": "kjkjkljkj",
-      "lastname": "jkjkjkjk",
-      "username": "jkjkjkj",
-      "email": "jkjkjkj@jkjkjkj.com",
-      "password": "66666",
-      "id": 4
-    },
-    {
-      "firstname": "dadfda",
-      "lastname": "dfsds",
-      "username": "sdfdgd",
-      "email": "afdaa@kjkjl.com",
-      "password": "66666",
-      "id": 5
-    },
-    {
-      "firstname": "Makeivelli",
-      "lastname": "The",
-      "username": "Don",
-      "email": "thedon@gmail.com",
-      "password": "666666",
-      "id": 6
     }
   ]
 }

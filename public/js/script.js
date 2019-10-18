@@ -264,6 +264,91 @@ $(document).ready(function() {
 
   // Updating questions
   $("#quest-li").delegate(".update", "click", function() {
-    $(`#disp${$(this).attr("id")}`).append(`<form id=`);
+    event.preventDefault();
+    let id = $(this).attr("id");
+    let question;
+    let answer;
+    console.log(id);
+    $.get("http://localhost:3000/questions", function(data) {
+      for (i = 0; i < data.length; i++) {
+        if (id == data[i]["id"]) {
+          question = data[i]["question"];
+          answer = data[i]["answer"];
+          console.log(question, answer);
+        }
+      }
+      $(`#disp${id}`).html(`
+        <div id="updateField">
+          <form id="${id}">
+            <label for="updateQuest" class="text-dark">
+              Question
+            </label>
+            <input
+              type="text"
+              class="question"
+              id="updateQuest"
+              aria-describedby="emailHelp"
+              placeholder="${question}"
+              value="${question}"
+            />
+            ;
+            <label for="updateAnswer" class="text-dark">
+              Answer
+            </label>
+            <input
+              type="text"
+              class="answer"
+              id="updateAnswer"
+              placeholder="${answer}"
+              value="${answer}"
+            />
+            <button type="submit" class="btn btn-primary" value="Go">
+              Update
+            </button>
+          </form>
+          <button
+            type="submit"
+            id="cancelUpdate"
+            class="btn btn-primary"
+            value="Go"
+          >
+            Cancel
+          </button>
+        </div>
+      `);
+    });
+  });
+
+  // Cancelling Question Update
+  $("#quest-li").delegate("#cancelUpdate", "click", function() {
+    window.location.href = "index1.html";
+  });
+
+  // Updating a question
+  $("#quest-li").delegate("form", "submit", function() {
+    event.preventDefault();
+    if ($("#updateQuest").val() !== "" && $("#updateAnswer").val() !== "") {
+      let question = $("#updateQuest").val();
+      let answer = $("#updateAnswer").val();
+      console.log(question, answer);
+
+      let updatedQuest = { question, answer };
+      console.log(updatedQuest);
+
+      $.ajax({
+        method: "PUT",
+        url: `http://localhost:3000/questions/${$(this).attr("id")}`,
+        data: updatedQuest
+      })
+        .done(function(updatedQuest) {
+          window.location.href = "index1.html";
+          alert("Question Updated: " + updatedQuest[question]);
+          const postData = JSON.stringify(updatedQuest);
+          localStorage.setItem("post", postData);
+        })
+        .fail(function(err) {
+          alert("Error" + msg);
+        });
+    }
   });
 });
