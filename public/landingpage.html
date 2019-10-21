@@ -47,9 +47,15 @@
               Questions
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#addquestions">Create questions</a>
-              <a class="dropdown-item" href="index1.html">Update questions</a>
-              <a class="dropdown-item" href="index1.html">Delete questions</a>
+              <a class="dropdown-item admin" href="#addquestions"
+                >Create questions</a
+              >
+              <a class="dropdown-item admin" href="index1.html"
+                >Update questions</a
+              >
+              <a class="dropdown-item admin" href="index1.html"
+                >Delete questions</a
+              >
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="index1.html">View all questions</a>
             </div>
@@ -72,21 +78,15 @@
             aria-label="Search"
             id="searchstring"
           />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          <button class="btn my-2 my-sm-0" type="submit">
             Search
           </button>
         </form>
+        <button id="logout" class="btn btn-danger my-2 my-sm-0" type="submit">
+          Logout
+        </button>
       </div>
     </nav>
-
-    <div class="container-fluid" id="landingpage">
-      <h3 class="display-1" id="headerword">HTML QUIZ</h3>
-      <p class="lead">
-        <marquee class="display-4"
-          >Take a quiz to see how much of HTML 5 you know</marquee
-        >
-      </p>
-    </div>
 
     <div class="container-fluid" id="main">
       <h2>Quiz Up</h2>
@@ -96,7 +96,7 @@
       </form>
     </div>
 
-    <div class="container-fluid" id="addquestions">
+    <div class="container-fluid admin" id="addquestions">
       <form id="addquestion">
         <h3>Add Questions</h3>
         <div class="form-group">
@@ -121,7 +121,13 @@
             placeholder="Type the correct answer to your question here"
           />
         </div>
-        <button type="submit" class="btn btn-primary" value="Go">Add</button>
+        <button
+          type="submit"
+          class="btn btn-primary mx-auto d-block"
+          value="Go"
+        >
+          Add
+        </button>
       </form>
     </div>
 

@@ -11,9 +11,14 @@
       "id": 2
     },
     {
-      "question": "How many body tags are needed in an html element",
+      "question": "How many body tags are needed in a HTML document",
       "answer": "one",
       "id": 3
+    },
+    {
+      "question": "What do I do",
+      "answer": "Code",
+      "id": 4
     }
   ],
   "users": [
@@ -41,6 +46,14 @@
       "email": "abiyewillie@gmail.com",
       "password": "55555",
       "id": 3
+    },
+    {
+      "firstname": "Josh",
+      "lastname": "Onungwe",
+      "username": "Joco",
+      "email": "josh@gmail.com",
+      "password": "password",
+      "id": 4
     }
   ]
 }

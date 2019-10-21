@@ -1,4 +1,23 @@
+function admin() {
+  loginID = localStorage.getItem("loginDetail");
+  if (loginID) {
+    $.get("http://localhost:3000/users", function(data) {
+      for (i = 0; i < data.length; i++) {
+        if (loginID == data[i]["id"]) {
+          if (data[i].hasOwnProperty("admin")) {
+          } else {
+            $(".admin").hide();
+          }
+        }
+      }
+    });
+  }
+}
+
 $(document).ready(function() {
+  //Hiding admin processes like Creat, Delete and Update questions
+  admin();
+
   //Searching questions
   $("#search").submit(function(event) {
     event.preventDefault();
@@ -57,7 +76,7 @@ $(document).ready(function() {
       let question = data[i]["question"];
       let id = data[i]["id"];
       $("#quest-li").append(
-        `<li id="disp${id}"> ${question} <a role="button" class="btn btn-outline-primary update" id="${id}" href="">Update</a> <a role="button" class="btn btn-outline-danger remove" id="${id}" href="">Delete</a></li>`
+        `<li id="disp${id}"> ${question} <a role="button" class="btn btn-outline-primary update admin" id="${id}" href="">Update</a> <a role="button" class="btn btn-outline-danger remove admin" id="${id}" href="">Delete</a></li>`
       );
     }
   });
@@ -251,7 +270,10 @@ $(document).ready(function() {
         for (i = 0; i < data.length; i++) {
           let email = data[i]["email"];
           let password = data[i]["password"];
+          let id = data[i]["id"];
           if (signInEmail == email && signInPassword == password) {
+            localStorage.setItem("loginDetail", JSON.stringify(id));
+            console.log(localStorage.getItem("loginDetail"));
             window.location.href = "landingpage.html";
           }
         }
@@ -351,4 +373,14 @@ $(document).ready(function() {
         });
     }
   });
+
+  $("#logout").click(function(event) {
+    event.preventDefault();
+    localStorage.removeItem("loginDetail");
+    window.location.href = "index.html";
+  });
 });
+
+function goBack() {
+  window.history.back();
+}

@@ -10,40 +10,49 @@
     <link rel="stylesheet" href="./css/bootstrap.css" />
   </head>
   <body>
-    <div class="jumbotron">
-      <h3 color="black">Sign In</h3>
-      <form id="signin">
-        <div class="form-group">
-          <label for="signinEmail">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="signinEmail"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="signinPassword">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="signinPassword"
-            placeholder="Password"
-            required
-          />
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="loginDetail" />
-          <label class="form-check-label" for="loginDetail"
-            >Remember Me</label
+    <h2 id="headerword">HTML QUIZ</h2>
+    <p class="lead">Take a quiz to see how much of HTML 5 you know</p>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="jumbotron">
+        <h3 color="black">Sign In</h3>
+        <form id="signin">
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              id="signinEmail"
+              aria-describedby="emailHelp"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              id="signinPassword"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="loginDetail" />
+            <label class="form-check-label" for="loginDetail"
+              >Remember Me</label
+            >
+          </div>
+          <small id="emailHelp" class="form-text text-muted"
+            >Don't have an account yet? <a href="signup.html">Sign Up</a></small
           >
-        <small id="emailHelp" class="form-text text-muted"
-          >Don't have an account yet? <a href="signup.html">Sign Up</a></small
-        >
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="margin: 30px 10px 1px 10px"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
 
     <script

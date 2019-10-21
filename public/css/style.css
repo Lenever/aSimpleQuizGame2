@@ -1,6 +1,5 @@
 body {
   background-color: #f7f7f7;
-  background: url("https://i.pinimg.com/564x/4c/6b/74/4c6b74dd8e9b4c372b1e996130bdb0df.jpg");
 }
 
 .header {
@@ -31,13 +30,16 @@ body {
 }
 
 #headerword {
-  color: wheat;
+  color: black;
+  text-align: center;
+  padding: 30px 10px 1px 10px;
+  margin: 30px 10px 1px 10px;
 }
 
 .lead {
-  font-style: italic;
-  color: aquamarine;
+  color: black;
   font-size: 12px;
+  text-align: center;
 }
 
 .quizquest {
@@ -61,7 +63,8 @@ h2 {
 }
 
 label {
-  color: antiquewhite;
+  font-weight: 100;
+  font-size: 13px;
 }
 
 hr {
@@ -84,6 +87,10 @@ hr {
 
 .jumbotron {
   text-align: center;
+  height: 90%;
+  width: 40%;
+  float: center;
+  vertical-align: middle;
 }
 
 li {

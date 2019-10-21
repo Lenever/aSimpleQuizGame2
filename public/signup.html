@@ -10,87 +10,98 @@
     <link rel="stylesheet" href="./css/bootstrap.css" />
   </head>
   <body>
-    <div class="jumbotron">
-      <h3 color="black">Sign Up</h3>
-      <form id="signup" autocomplete="off">
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="firstName"
-            aria-describedby="emailHelp"
-            placeholder="First Name"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="lastName"
-            aria-describedby="emailHelp"
-            placeholder="Last Name"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="userName">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            id="userName"
-            aria-describedby="emailHelp"
-            placeholder="Username"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="inputEmail">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="inputEmail"
-            aria-describedby="emailHelp"
-            placeholder="example@you.com"
-            required
-          />
-          <small id="emailHelp" class="form-text text-muted"
-            >We'll never share your email with anyone else.</small
-          >
-        </div>
-        <div class="form-group">
-          <label for="inputPassword">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="inputPassword"
-            placeholder="Password"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="retypePassword">Retype Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="retypePassword"
-            placeholder="Retype Password"
-            required
-          />
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="tandC" />
-          <label class="form-check-label" for="tandC"
-            >I agree to the <a href="">terms and conditions</a></label
-          >
-        </div>
-        <small id="emailHelp" class="form-text text-muted"
-          >Already have an account? <a href="signin.html">Sign In</a></small
+    <h2 id="headerword">HTML QUIZ</h2>
+    <p class="lead">Take a quiz to see how much of HTML 5 you know</p>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="jumbotron">
+        <button
+          type="button"
+          style="float: right; color: red"
+          onclick="goBack()"
         >
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+          X
+        </button>
+        <h3 color="black">Sign Up</h3>
+        <form id="signup" autocomplete="off">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              aria-describedby="emailHelp"
+              placeholder="First Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              aria-describedby="emailHelp"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="userName"
+              aria-describedby="emailHelp"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              aria-describedby="emailHelp"
+              placeholder="example@you.com"
+              required
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              id="inputPassword"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              id="retypePassword"
+              placeholder="Retype Password"
+              required
+            />
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="tandC" />
+            <label class="form-check-label" for="tandC"
+              >I agree to the <a href="">terms and conditions</a></label
+            >
+          </div>
+          <small id="emailHelp" class="form-text text-muted"
+            >Already have an account? <a href="signin.html">Sign In</a></small
+          >
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="margin: 30px 10px 1px 10px"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
