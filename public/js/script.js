@@ -76,7 +76,7 @@ $(document).ready(function() {
       let question = data[i]["question"];
       let id = data[i]["id"];
       $("#quest-li").append(
-        `<li id="disp${id}"> ${question} <a role="button" class="btn btn-outline-primary update admin" id="${id}" href="">Update</a> <a role="button" class="btn btn-outline-danger remove admin" id="${id}" href="">Delete</a></li>`
+        `<li id="disp${id}"> ${question} <a role="button" class="btn-outline-primary update admin" id="${id}" href="">Update</a> <a role="button" class="btn-outline-danger remove admin" id="${id}" href="">Delete</a></li>`
       );
     }
   });
@@ -198,15 +198,17 @@ $(document).ready(function() {
 
       let percentPassed = Math.floor((count / numQuest) * 100);
 
-      $("#main").append(`<div class="jumbotron" id="resultdisplay"></div>`);
+      $("#main").append(
+        `<div class="jumbotron mx-auto d-block" id="resultdisplay"></div>`
+      );
       $("#resultdisplay").append(
         `<p id="quizResult"> Congratulations!! You scored ${percentPassed}%!`
       );
       $("#resultdisplay").append(
-        `<a role="button" class="btn btn-outline-primary" href="">Retake Quiz</a>`
+        `<a role="button" class="btn btn-primary" href="" style="margin: 10px">Retake Quiz</a>`
       );
       $("#resultdisplay").append(
-        `<a role="button" class="btn btn-outline-danger" href="">Close</a>`
+        `<a role="button" class="btn btn-danger" href="" style="margin: 10px">Close</a>`
       );
     });
   });
@@ -377,7 +379,7 @@ $(document).ready(function() {
   $("#logout").click(function(event) {
     event.preventDefault();
     localStorage.removeItem("loginDetail");
-    window.location.href = "index.html";
+    window.location.href = "signin.html";
   });
 });
 
