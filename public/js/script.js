@@ -17,32 +17,36 @@ function admin() {
 $(document).ready(function() {
   //Hiding admin processes like Creat, Delete and Update questions
   admin();
+  // $("body").delegate("admin", "onload", admin());
+  $("body")
+    .find(".admin")
+    .on("load", admin());
 
   //Searching questions
   $("#search").submit(function(event) {
     event.preventDefault();
     if ($("#searchstring").val() !== "") {
       let searchstring = $("#searchstring").val();
-      console.log(searchstring);
+
+      localStorage.setItem("searchstring", searchstring);
 
       window.open("searchresult.html", "_self", false);
-
-      $.get("http://localhost:3000/questions", function(data) {
-        for (i = 0; i < data.length; i++) {
-          const question = data[i]["question"];
-          const answer = data[i]["answer"];
-          if (
-            question.includes(searchstring) ||
-            answer.includes(searchstring)
-          ) {
-            $("#searchli").append(`<li>${question}</li>`);
-          } else {
-            $("#searchresult").append(`<p> No resutls found </p>`);
-          }
-        }
-      });
     }
   });
+
+  //Displaying search results
+  $.get(
+    `http://localhost:3000/questions?q=${localStorage.getItem("searchstring")}`,
+    function(data) {
+      for (i = 0; i < data.length; i++) {
+        const question = data[i]["question"];
+        const answer = data[i]["answer"];
+        $("#searchli").append(`<li>${question}</li>`);
+      }
+
+      localStorage.removeItem("searchstring");
+    }
+  );
 
   // Adding Questions and correct answer from user
   $("#addquestion").submit(function(event) {
@@ -76,7 +80,7 @@ $(document).ready(function() {
       let question = data[i]["question"];
       let id = data[i]["id"];
       $("#quest-li").append(
-        `<li id="disp${id}"> ${question} <a role="button" class="btn-outline-primary update admin" id="${id}" href="">Update</a> <a role="button" class="btn-outline-danger remove admin" id="${id}" href="">Delete</a></li>`
+        `<li id="disp${id}"> ${question} <a role="button" style="margin: 0 15px 0 50px"class="btn-outline-primary update admin" id="${id}" href="">Update</a> <a role="button" class="btn-outline-danger remove admin" id="${id}" href="">Delete</a></li>`
       );
     }
   });
@@ -198,6 +202,27 @@ $(document).ready(function() {
 
       let percentPassed = Math.floor((count / numQuest) * 100);
 
+      $.get("http://localhost:3000/users", function(data) {
+        for (i = 0; i < data.length; i++) {
+          let loginid = localStorage.getItem("loginDetail");
+          let userID = data[i]["id"];
+          let scores = JSON.parse(data[i]["scores"]);
+          console.log(scores);
+
+          if (loginid == userID) {
+            scores.push(percentPassed);
+            console.log(scores);
+
+            let allScores = { ...data[i], scores };
+            $.ajax({
+              method: "PUT",
+              url: `http://localhost:3000/users/${userID}`,
+              data: allScores
+            });
+          }
+        }
+      });
+
       $("#main").append(
         `<div class="jumbotron mx-auto d-block" id="resultdisplay"></div>`
       );
@@ -225,21 +250,28 @@ $(document).ready(function() {
     }
   });
 
-  // Adding Users data from SignUp
+  // Adding User's data from SignUp
   $("#signup").submit(function(event) {
     event.preventDefault();
-    if ($(".form-control").val() !== "" && $("#tandC").is(":checked")) {
+    if (
+      $(".form-control").val() !== "" &&
+      $("#tandC").is(":checked") &&
+      $("#inputPassword").val() == $("#retypePassword").val()
+    ) {
       const firstname = $("#firstName").val();
       const lastname = $("#lastName").val();
       const username = $("#userName").val();
       const email = $("#inputEmail").val();
       const password = $("#retypePassword").val();
+      const scores = [0];
+
       let newUser = {
         firstname,
         lastname,
         username,
         email,
-        password
+        password,
+        scores
       };
 
       $.ajax({
@@ -256,6 +288,8 @@ $(document).ready(function() {
         .fail(function(err) {
           alert("Error" + msg);
         });
+    } else if ($("#inputPassword").val() !== $("#retypePassword").val()) {
+      alert("Password does not match");
     } else {
       alert("Agree to the terms and condition to continue");
     }
@@ -380,6 +414,11 @@ $(document).ready(function() {
     event.preventDefault();
     localStorage.removeItem("loginDetail");
     window.location.href = "signin.html";
+  });
+
+  $("#addtoggle").click(function(event) {
+    event.preventDefault();
+    $("#addquestion").toggle();
   });
 });
 

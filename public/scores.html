@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quiz Up</title>
+    <title>Scores</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/bootstrap.css" />
@@ -31,11 +31,9 @@
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="#main">Take a quiz</a>
           </li>
-
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -48,7 +46,6 @@
             >
               Questions
             </a>
-
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item admin" href="#addquestions"
                 >Create questions</a
@@ -63,7 +60,6 @@
               <a class="dropdown-item" href="index1.html">View all questions</a>
             </div>
           </li>
-
           <li class="nav-item">
             <a
               class="nav-link"
@@ -73,12 +69,10 @@
               >Contact us</a
             >
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="scores.html">Scores</a>
           </li>
         </ul>
-
         <form class="form-inline my-2 my-lg-0" id="search">
           <input
             class="form-control mr-sm-2"
@@ -91,65 +85,16 @@
             Search
           </button>
         </form>
-
         <button id="logout" class="btn btn-danger my-2 my-sm-0" type="submit">
           Logout
         </button>
       </div>
     </nav>
 
-    <div class="container-fluid" id="main">
-      <h2>Quiz Up</h2>
-      <form id="target">
-        <ol id="quizli"></ol>
-        <button type="submit" class="btn btn-primary mx-auto d-block">
-          Submit
-        </button>
-      </form>
-    </div>
+    <h1>All Scores</h1>
 
-    <div class="container-fluid" id="addquestions">
-      <button
-        type="button"
-        class="btn btn-primary admin"
-        id="addtoggle"
-        style="margin: 0 0 0 50px"
-      >
-        Add question
-      </button>
-      <form id="addquestion">
-        <h4>Add Questions</h4>
-        <div class="form-group">
-          <label for="exampleInputEmail1" class="text-dark">Question</label>
-          <input
-            type="text"
-            class="question"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Type question here"
-          />
-          <small id="emailHelp" class="form-text text-muted"
-            >Direct questions please</small
-          >
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1" class="text-dark">Answer</label>
-          <input
-            type="text"
-            class="answer"
-            id="exampleInputPassword1"
-            placeholder="Type the correct answer to your question here"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary" value="Go">
-          Add
-        </button>
-      </form>
-    </div>
-
-    <div id="contactus">
-      <p>onuorah.ikechukwuvictor@gmail.com</p>
-      <p>+2347037373502</p>
+    <div id="scores">
+      <ol id="scoreli"></ol>
     </div>
 
     <script

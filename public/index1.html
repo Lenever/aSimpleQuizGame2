@@ -33,6 +33,9 @@
           <li class="nav-item">
             <a class="nav-link" href="landingpage.html">Take a quiz</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="scores.html">Scores</a>
+          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" id="search">
           <input
@@ -53,12 +56,21 @@
     </nav>
 
     <h1>All Questions</h1>
+
     <div id="quest">
       <ol id="quest-li"></ol>
     </div>
+
     <div class="container-fluid admin" id="addquestions">
+      <button
+        type="button"
+        class="btn btn-primary admin mx-auto d-block"
+        id="addtoggle"
+      >
+        Add question
+      </button>
       <form id="addquestion">
-        <h3>Add Questions</h3>
+        <h4>Add Questions</h4>
         <div class="form-group">
           <label for="exampleInputEmail1" class="text-dark">Question</label>
           <input
@@ -76,9 +88,10 @@
           <label for="exampleInputPassword1" class="text-dark">Answer</label>
           <input
             type="text"
-            class="answer"
+            class="answer input-block-level"
             id="exampleInputPassword1"
             placeholder="Type the correct answer to your question here"
+            row="1"
           />
         </div>
         <button type="submit" class="btn btn-primary" value="Go">Add</button>

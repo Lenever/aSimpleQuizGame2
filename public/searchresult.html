@@ -10,12 +10,93 @@
     <link rel="stylesheet" href="./css/bootstrap.css" />
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="top">
+      <a class="navbar-brand" href="landingpage.html">QuizUp</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="landingpage.html"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="landingpage.html">Take a quiz</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="index1.html"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Questions
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item admin" href="#addquestions"
+                >Create questions</a
+              >
+              <a class="dropdown-item admin" href="index1.html"
+                >Update questions</a
+              >
+              <a class="dropdown-item admin" href="index1.html"
+                >Delete questions</a
+              >
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="index1.html">View all questions</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#contactus"
+              tabindex="-1"
+              aria-disabled="true"
+              >Contact us</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" id="search">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Look up a question"
+            aria-label="Search"
+            id="searchstring"
+          />
+          <button class="btn my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+        <button id="logout" class="btn btn-danger my-2 my-sm-0" type="submit">
+          Logout
+        </button>
+      </div>
+    </nav>
+
     <h1>Search Result</h1>
+
     <div id="searchresult">
       <ol id="searchli"></ol>
     </div>
+
     <div class="container-fluid" id="addquestions">
       <form id="addquestion">
+        <h4>Add Questions</h4>
         <div class="form-group">
           <label for="exampleInputEmail1" class="text-dark">Question</label>
           <input
