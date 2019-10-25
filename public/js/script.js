@@ -181,22 +181,20 @@ $(document).ready(function() {
   // Quiz result calculations and display
   $("#target").submit(function(event) {
     event.preventDefault();
+
     $("#target").hide();
     let count = 0;
     let numQuest = 0;
     $.get("http://localhost:3000/questions", function(data) {
       numQuest = data.length;
-      console.log(numQuest);
       for (let k = 0; k < data.length; k++) {
         var answer = data[k]["answer"];
         var id = data[k]["id"];
         var radioValue = document.querySelector(
           `input[name="group${id}"]:checked`
         ).value;
-        console.log(radioValue);
         if (radioValue == answer) {
           count += 1;
-          console.log(count);
         }
       }
 
@@ -207,35 +205,40 @@ $(document).ready(function() {
           let loginid = localStorage.getItem("loginDetail");
           let userID = data[i]["id"];
           let scores = JSON.parse(data[i]["scores"]);
-          console.log(scores);
 
           if (loginid == userID) {
             scores.push(percentPassed);
-            console.log(scores);
+            scores = JSON.stringify(scores);
 
-            let allScores = { ...data[i], scores };
+            let allScores = { scores };
+
             $.ajax({
-              method: "PUT",
+              method: "PATCH",
               url: `http://localhost:3000/users/${userID}`,
               data: allScores
-            });
+            })
+              .done(function() {
+                $("#main").append(
+                  `<div class="jumbotron mx-auto d-block" id="resultdisplay"></div>`
+                );
+                $("#resultdisplay").append(
+                  `<p id="quizResult"> Congratulations!! You scored ${percentPassed}%!`
+                );
+                $("#resultdisplay").append(
+                  `<a role="button" class="btn btn-primary" href="" style="margin: 10px">Retake Quiz</a>`
+                );
+                $("#resultdisplay").append(
+                  `<a role="button" class="btn btn-danger" href="" style="margin: 10px">Close</a>`
+                );
+              })
+              .fail(function() {
+                alert("Error: Please retake quiz");
+              });
           }
         }
       });
-
-      $("#main").append(
-        `<div class="jumbotron mx-auto d-block" id="resultdisplay"></div>`
-      );
-      $("#resultdisplay").append(
-        `<p id="quizResult"> Congratulations!! You scored ${percentPassed}%!`
-      );
-      $("#resultdisplay").append(
-        `<a role="button" class="btn btn-primary" href="" style="margin: 10px">Retake Quiz</a>`
-      );
-      $("#resultdisplay").append(
-        `<a role="button" class="btn btn-danger" href="" style="margin: 10px">Close</a>`
-      );
     });
+    return false;
   });
 
   // Delete buttons on questions
@@ -263,7 +266,7 @@ $(document).ready(function() {
       const username = $("#userName").val();
       const email = $("#inputEmail").val();
       const password = $("#retypePassword").val();
-      const scores = [0];
+      const scores = "[]";
 
       let newUser = {
         firstname,
@@ -281,7 +284,7 @@ $(document).ready(function() {
       })
         .done(function(newUser) {
           window.location.href = "signin.html";
-          alert("Details Saved: " + newUser[email]);
+          alert("Details Saved");
           const postData = JSON.stringify(newUser);
           localStorage.setItem("post", postData);
         })
@@ -309,7 +312,6 @@ $(document).ready(function() {
           let id = data[i]["id"];
           if (signInEmail == email && signInPassword == password) {
             localStorage.setItem("loginDetail", JSON.stringify(id));
-            console.log(localStorage.getItem("loginDetail"));
             window.location.href = "landingpage.html";
           }
         }
@@ -326,13 +328,11 @@ $(document).ready(function() {
     let id = $(this).attr("id");
     let question;
     let answer;
-    console.log(id);
     $.get("http://localhost:3000/questions", function(data) {
       for (i = 0; i < data.length; i++) {
         if (id == data[i]["id"]) {
           question = data[i]["question"];
           answer = data[i]["answer"];
-          console.log(question, answer);
         }
       }
       $(`#disp${id}`).html(`
@@ -388,10 +388,8 @@ $(document).ready(function() {
     if ($("#updateQuest").val() !== "" && $("#updateAnswer").val() !== "") {
       let question = $("#updateQuest").val();
       let answer = $("#updateAnswer").val();
-      console.log(question, answer);
 
       let updatedQuest = { question, answer };
-      console.log(updatedQuest);
 
       $.ajax({
         method: "PUT",
@@ -407,6 +405,18 @@ $(document).ready(function() {
         .fail(function(err) {
           alert("Error" + msg);
         });
+    }
+  });
+
+  //Displaying All Candidates' scores
+  $.get("http://localhost:3000/users", function(data) {
+    for (i = 0; i < data.length; i++) {
+      const username = data[i]["username"];
+      const scores = JSON.parse(data[i]["scores"]);
+
+      $("#scoreli").append(
+        `<li><strong>${username}</strong>: ${[...scores]} </li>`
+      );
     }
   });
 

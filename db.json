@@ -24,7 +24,7 @@
       "username": "Iyke",
       "email": "onuorahikechukwu@gmail.com",
       "password": "55555",
-      "scores": [],
+      "scores": "[]",
       "admin": ""
     },
     {
@@ -33,7 +33,7 @@
       "username": "Lomo",
       "email": "abiyewillie@gmail.com",
       "password": "55555",
-      "scores": [],
+      "scores": "[100]",
       "id": 2
     },
     {
@@ -42,17 +42,8 @@
       "username": "Joco",
       "email": "josh@gmail.com",
       "password": "password",
-      "scores": [],
+      "scores": "[]",
       "id": 3
-    },
-    {
-      "firstname": "Daisy",
-      "lastname": "Dormegeu",
-      "username": "Daisy",
-      "email": "daisy@gmail.com",
-      "password": "11111",
-      "scores[]": "0",
-      "id": 4
     }
   ]
 }
