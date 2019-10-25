@@ -1,5 +1,8 @@
+let loginUser = localStorage.getItem("loginUsername");
+
 function admin() {
-  loginID = localStorage.getItem("loginDetail");
+  let loginID = localStorage.getItem("loginDetail");
+
   if (loginID) {
     $.get("http://localhost:3000/users", function(data) {
       for (i = 0; i < data.length; i++) {
@@ -17,10 +20,13 @@ function admin() {
 $(document).ready(function() {
   //Hiding admin processes like Creat, Delete and Update questions
   admin();
-  // $("body").delegate("admin", "onload", admin());
   $("body")
     .find(".admin")
     .on("load", admin());
+
+  $("#logout").before(
+    `<button class="btn btn-light" type="button" disabled>${loginUser}</button>`
+  );
 
   //Searching questions
   $("#search").submit(function(event) {
@@ -87,18 +93,20 @@ $(document).ready(function() {
 
   // Getting the options and answers
   var options = [
-    "host",
+    "Host",
     "Data",
-    "three",
+    "Three",
     "HTML",
-    "six",
+    "Six",
     "Mark Up",
     "Language",
-    "Body tag",
+    "Body Tag",
     "None of the above",
     "All of the above",
     "Zero",
-    "I do not know"
+    "I do not know",
+    "One",
+    "Two"
   ];
 
   $.get("http://localhost:3000/questions", function(data) {
@@ -310,8 +318,11 @@ $(document).ready(function() {
           let email = data[i]["email"];
           let password = data[i]["password"];
           let id = data[i]["id"];
+          let username = data[i]["username"];
+
           if (signInEmail == email && signInPassword == password) {
             localStorage.setItem("loginDetail", JSON.stringify(id));
+            localStorage.setItem("loginUsername", username);
             window.location.href = "landingpage.html";
           }
         }

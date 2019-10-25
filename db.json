@@ -12,7 +12,7 @@
     },
     {
       "question": "How many body tags are needed in a HTML document",
-      "answer": "one",
+      "answer": "One",
       "id": 3
     }
   ],
@@ -44,6 +44,15 @@
       "password": "password",
       "scores": "[]",
       "id": 3
+    },
+    {
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "username": "Pwiedy",
+      "email": "jane@gmail.com",
+      "password": "33333",
+      "scores": "[66,100]",
+      "id": 4
     }
   ]
 }

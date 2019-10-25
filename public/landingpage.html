@@ -50,7 +50,7 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item admin" href="#addquestions"
+              <a class="dropdown-item admin" href="index1.html"
                 >Create questions</a
               >
               <a class="dropdown-item admin" href="index1.html"
@@ -98,60 +98,65 @@
       </div>
     </nav>
 
-    <div class="container-fluid" id="main">
-      <h2>Quiz Up</h2>
-      <form id="target">
-        <ol id="quizli"></ol>
-        <button type="submit" class="btn btn-primary mx-auto d-block">
-          Submit
-        </button>
-      </form>
-    </div>
+    <div id="page-container">
+      <div id="content-wrap">
+        <div class="container-fluid" id="main">
+          <h2>Quiz Up</h2>
+          <form id="target">
+            <ol id="quizli"></ol>
+            <button type="submit" class="btn btn-primary mx-auto d-block">
+              Submit
+            </button>
+          </form>
+        </div>
 
-    <div class="container-fluid" id="addquestions">
-      <button
-        type="button"
-        class="btn btn-primary admin"
-        id="addtoggle"
-        style="margin: 0 0 0 50px"
-      >
-        Add question
-      </button>
-      <form id="addquestion">
-        <h4>Add Questions</h4>
-        <div class="form-group">
-          <label for="exampleInputEmail1" class="text-dark">Question</label>
-          <input
-            type="text"
-            class="question"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Type question here"
-          />
-          <small id="emailHelp" class="form-text text-muted"
-            >Direct questions please</small
+        <div class="container-fluid" id="addquestions">
+          <button
+            type="button"
+            class="btn btn-primary admin"
+            id="addtoggle"
+            style="margin: 0 0 0 50px"
           >
+            Add question
+          </button>
+          <form id="addquestion">
+            <h4>Add Questions</h4>
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="text-dark">Question</label>
+              <input
+                type="text"
+                class="question"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Type question here"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >Direct questions please</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="text-dark"
+                >Answer</label
+              >
+              <input
+                type="text"
+                class="answer"
+                id="exampleInputPassword1"
+                placeholder="Type the correct answer to your question here"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary" value="Go">
+              Add
+            </button>
+          </form>
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1" class="text-dark">Answer</label>
-          <input
-            type="text"
-            class="answer"
-            id="exampleInputPassword1"
-            placeholder="Type the correct answer to your question here"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary" value="Go">
-          Add
-        </button>
-      </form>
-    </div>
+      </div>
 
-    <div id="contactus">
-      <p>onuorah.ikechukwuvictor@gmail.com</p>
-      <p>+2347037373502</p>
+      <div id="contactus">
+        <p>onuorah.ikechukwuvictor@gmail.com</p>
+        <p>+2347037373502</p>
+      </div>
     </div>
-
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
